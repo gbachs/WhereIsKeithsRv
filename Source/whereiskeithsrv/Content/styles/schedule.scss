@@ -1,0 +1,73 @@
+@import 'colors';
+
+#schedule
+{
+	display: inline-block;
+	text-align: left;
+	vertical-align: top;
+}
+
+#schedule table
+{
+	border-spacing: 0;
+}
+
+#schedule tbody td:first-child
+{
+	border-radius: .5rem 0 0 .5rem;
+}
+
+#schedule tbody td:last-child
+{
+	border-radius: 0 .5rem .5rem 0;
+}
+
+#schedule tbody tr.is-rv-attending
+{
+	color: $primary-color;
+}
+
+#schedule tbody tr.is-rv-attending:hover
+{
+	cursor: pointer;
+}
+
+#schedule tbody tr:not(.is-rv-attending)
+{
+	color: $secondary-color;
+}
+
+#schedule tbody tr.selected td
+{
+	background-color: $primary-color;
+	color: $accent-color;
+}
+
+#schedule table th,
+#schedule table td
+{
+	padding: 1rem;
+	white-space: nowrap;
+}
+
+#schedule table th
+{
+	color: $primary-color;
+}
+
+#schedule table td.date,
+#schedule table td.time
+{
+	text-align: center;
+}
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : portrait)
+{
+	#schedule
+	{
+	
+	}
+}

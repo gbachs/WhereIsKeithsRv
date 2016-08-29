@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Where is Keith's RV?";
+}
+
+@*<select data-bind="options: gameViewModels, value: selectedGame, optionsText: function(item) { return item.date() + ' - ' + item.opponentName(); }, optionsAfterRender: function(option, item) { ko.applyBindingsToNode(option, { enable: item.willAttendGame }, item); }" id="game-selector-dropdown"></select>
+<div id="parking-spot-map-container">
+    <img src="~/Content/images/1314-fb-rv-parking-map-cropped.jpg" />
+</div>
+<div id="schedule">
+    <table id="game-selector-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Opponent</th>
+                <th>Time</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: gameViewModels">
+            <tr data-bind="click: willAttendGame() ? $parent.selectGameParkingSpot.bind($parent) : null, event: { mouseover: willAttendGame() ? $parent.selectGameParkingSpot.bind($parent) : null }, css: { selected: $parent.selectedGameId() === id(), home: isHome, away: !isHome(), 'is-rv-attending': willAttendGame }">
+                <td data-bind="text: date" class="date"></td>
+                <td data-bind="text: opponentName"></td>
+                <td data-bind="text: time" class="time"></td>
+                <td data-bind="text: parkingSpotCaption"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>*@
+<div id="map" style="height:100%;margin:auto;width:100%;"></div>
+<script type="text/javascript">
+    function initMap() {
+        var position = { lat: 40.010396, lng: -83.027526 };
+
+        var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 17,
+            center: position,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            tilt: 0
+        });
+        //map.setTilt(45);
+
+        var title = "Keith's RV";
+        var lotDescription = "Gray Lot 5";
+        var spotDescription = "Spot 63";
+
+        var markerDescription = title + " - " + spotDescription + " - " + lotDescription;
+
+        var marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: markerDescription
+        });
+
+        var positionString = position.lat + "," + position.lng;
+
+        var infoContent =
+            "<div style=\"margin:10px;\">" +
+            title + "<br />" +
+            spotDescription + "<br />" +
+            lotDescription + "<br />" +
+            "<a href=\"https://maps.apple.com/?q=" + positionString + "\">Apple Maps</a><br />" +
+            "<a href=\"https://maps.google.com/?q=" + positionString + "\">Google Maps</a><br />" +
+            "</div>";
+
+        var infowindow = new google.maps.InfoWindow({
+            content: infoContent
+        });
+
+        marker.addListener("click", function () {
+            infowindow.open(map, marker);
+        });
+        
+        infowindow.open(map, marker);
+
+        var spotCoordinates = [
+            { lat: 40.010341, lng: -83.027392 }, // SE
+            { lat: 40.010343, lng: -83.027517 }, // SW
+            { lat: 40.010448, lng: -83.027643 }, // NW
+            { lat: 40.010447, lng: -83.027515 } // NE
+        ];
+
+        var spotPolygon = new google.maps.Polygon({
+            paths: spotCoordinates,
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35
+        });
+
+        spotPolygon.setMap(map);
+    }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyAiM3rQZI4xKMDbbAbrzfd99jODY_kZeUM&callback=initMap" async defer></script>

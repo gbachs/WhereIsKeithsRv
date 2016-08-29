@@ -1,0 +1,65 @@
+@import 'colors';
+@import 'helpers';
+
+#parking-spot-map-container
+{
+	display: inline-block;
+	height: 406px;
+	margin: auto;
+	overflow: hidden;
+	position: relative;
+	text-align: left;
+	width: 391px;
+}
+
+#parking-spot-map-container img
+{
+	opacity: .8;
+	position: absolute;
+}
+
+#parking-spot-map-container .pin
+{
+	display: block;
+	position: absolute;
+}
+
+#parking-spot-map-container .pin.hidden
+{
+	display: none;
+}
+
+#parking-spot-map-container .pin.point
+{
+	background-color: rgb(255, 0, 0);
+	box-shadow: 0 0 1px 1px rgb(255, 255, 255);
+	height: 1px;
+	width: 1px;
+}
+
+#parking-spot-map-container .pin.spot
+{
+	background-color: $accent-color;
+	border-radius: 1px;
+	box-shadow: 0 0 1px 1px $secondary-color, 0 0 2px 2px $accent-color;
+	box-sizing: border-box;
+	height: 14px;
+	margin-left: -2px;
+	margin-top: -7px;
+	width: 5px;
+}
+
+#parking-spot-map-container .pin.spot:hover
+{
+	cursor: pointer;
+}
+
+#parking-spot-map-container .pin.spot[data-parking-spot-lot="1"][data-parking-spot-position="interior"]
+{
+	@include rotate(46deg);
+}
+
+#parking-spot-map-container .pin.spot[data-parking-spot-lot="2"][data-parking-spot-position="interior"]
+{
+	@include rotate(23deg);
+}

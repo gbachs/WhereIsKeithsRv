@@ -1,0 +1,33 @@
+html {
+  font-size: 62.5%;
+  height: 100%; }
+
+body {
+  font-family: Lato, san-serif;
+  font-size: 1.6rem;
+  height: 100%;
+  padding: 0;
+  text-align: center; }
+
+a {
+  color: #bb0000; }
+
+a:active {
+  color: #666666; }
+
+#game-selector-dropdown {
+  display: none;
+  margin: 0 auto 1rem auto; }
+
+#parking-spot-map-container,
+#schedule {
+  margin: 1.5rem; }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: portrait) {
+  #parking-spot-map-container,
+  #schedule {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; } }
+
+/*# sourceMappingURL=layout.css.map */

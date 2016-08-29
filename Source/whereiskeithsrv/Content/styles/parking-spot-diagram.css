@@ -1,0 +1,51 @@
+#parking-spot-map-container {
+  display: inline-block;
+  height: 406px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  width: 391px; }
+
+#parking-spot-map-container img {
+  opacity: .8;
+  position: absolute; }
+
+#parking-spot-map-container .pin {
+  display: block;
+  position: absolute; }
+
+#parking-spot-map-container .pin.hidden {
+  display: none; }
+
+#parking-spot-map-container .pin.point {
+  background-color: red;
+  box-shadow: 0 0 1px 1px white;
+  height: 1px;
+  width: 1px; }
+
+#parking-spot-map-container .pin.spot {
+  background-color: white;
+  border-radius: 1px;
+  box-shadow: 0 0 1px 1px #666666, 0 0 2px 2px white;
+  box-sizing: border-box;
+  height: 14px;
+  margin-left: -2px;
+  margin-top: -7px;
+  width: 5px; }
+
+#parking-spot-map-container .pin.spot:hover {
+  cursor: pointer; }
+
+#parking-spot-map-container .pin.spot[data-parking-spot-lot="1"][data-parking-spot-position="interior"] {
+  -moz-transform: rotate(46deg);
+  -ms-transform: rotate(46deg);
+  -o-transform: rotate(46deg);
+  -webkit-transform: rotate(46deg); }
+
+#parking-spot-map-container .pin.spot[data-parking-spot-lot="2"][data-parking-spot-position="interior"] {
+  -moz-transform: rotate(23deg);
+  -ms-transform: rotate(23deg);
+  -o-transform: rotate(23deg);
+  -webkit-transform: rotate(23deg); }
+
