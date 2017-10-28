@@ -7,7 +7,14 @@ var config = {
 
     out: "../Content/scripts/app.min.js",
 
-    removeCombined: true
+    removeCombined: true,
+
+    paths: {
+        jquery: "empty:",
+        knockout: "empty:",
+        moment: "empty:",
+        underscore: "empty:"
+    }
 };
 
 var onSuccess = function() {
