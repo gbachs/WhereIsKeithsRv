@@ -41,7 +41,18 @@
                 { lat: 40.010447, lng: -83.027515 } // NE
             ]
         };
-        var spot = spot1;
+        var spot2 = {
+            lotDescription: "Buckeye 3",
+            description: "240",
+            position: { lat: 40.015425, lng: -83.031107 },
+            bounds: [
+                { lat: 40.015404, lng: -83.030983 }, // SE
+                { lat: 40.015373, lng: -83.031086 }, // SW
+                { lat: 40.015440, lng: -83.031230 }, // NW
+                { lat: 40.015468, lng: -83.031137 } // NE
+            ]
+        };
+        var spot = spot2;
 
         var map = new google.maps.Map(document.getElementById("map"), {
             zoom: 17,
