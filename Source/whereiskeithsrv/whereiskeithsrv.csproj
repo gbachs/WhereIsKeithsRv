@@ -148,6 +148,7 @@
     <Content Include="Content\styles\_colors.scss" />
     <Content Include="Content\styles\_helpers.scss" />
     <Content Include="Content\styles\_typography.scss" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\Temp.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
